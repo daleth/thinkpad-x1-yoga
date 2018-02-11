@@ -1,12 +1,12 @@
 #!/bin/bash
-export XAUTHORITY=/home/redsandro/.Xauthority
+export XAUTHORITY=/home/redsandro/.Xauthority # replace redsandro with your username
 export DISPLAY=:0.0
 
 OLED_BR=`xrandr --verbose | grep -i brightness | cut -f2 -d ' '`
 CURR=`LC_ALL=C /usr/bin/printf "%.*f" 1 $OLED_BR`
 
 MIN=0
-MAX=1.2
+MAX=1.0
 
 if [ "$1" == "up" ]; then
     VAL=`echo "scale=1; $CURR+0.1" | bc`
